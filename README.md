@@ -24,6 +24,11 @@ This project was inspired by the increasing frequency of wildfires worldwide. **
 
 ---
 
+<div align="center">
+<h1>Build this project</h1>
+</div>
+
+
 ## 🔧 **Required Components**  
 - **ESP32** development board  
 - **PMS7003** (PM1.0, PM2.5, PM10 air quality sensor)  
