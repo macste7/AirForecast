@@ -15,7 +15,12 @@ AirForecast was designed to collect and visualize air quality data, as well as p
 ## Grafana end result
 <div align="center">
 <img src="Pictures/Grafana_visualize.png" width="800">
-</div><hr>s
+</div>
+
+
+
+
+
 
 
 
