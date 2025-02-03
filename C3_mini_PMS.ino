@@ -16,6 +16,14 @@
 #define PIXELS_NUM 1      // Ilość diod LED NeoPixel
 
 // ======================== Konfiguracja urządzenia ======================
+#define DEVICE_TYPE ""
+#define WIFI_SSID ""
+#define WIFI_PASSWORD "" 
+#define INFLUXDB_URL "" // server
+#define INFLUXDB_TOKEN "" // token
+#define INFLUXDB_ORG "" // organisation 
+#define INFLUXDB_BUCKET "" // Your bucket name
+#define TZ_INFO "CET-1CEST,M3.5.0/2,M10.5.0/3"
 
 // ======================== Debugowanie ===========================
 #define DEBUG 1
@@ -27,10 +35,6 @@
   #define DEBUG_PRINTLN(x)
 
 #endif
-
-
-
-
 
 // ======================== Obiekty globalne ======================
 Adafruit_BME280 bme;
@@ -67,8 +71,6 @@ AQI_data AQIdata;
 BME280_data BMEdata;
 static int delay_time = 30; // Delay (s) dla PMS
 static int send_data_delay = 60; // Delay (s) dla wysyłania do influxdb
-
-
 // ======================== Funkcje pomocnicze ====================
 void Save_data(PMS_data* pms_data, uint16_t PM1, uint16_t PM25, uint16_t PM10) {
   pms_data->PM1 = PM1;
@@ -86,7 +88,6 @@ void setRGBColor(uint8_t red, uint8_t green, uint8_t blue) {
   strip.setPixelColor(0, strip.Color(red, green, blue));
   strip.show();
 }
-
 int AQI_algorithm(uint16_t PM, uint16_t Clow, uint16_t Chigh, uint16_t Ilow, uint16_t Ihigh) {
   return int((float(Ihigh - Ilow) / (Chigh - Clow)) * (PM - Clow) + Ilow);
 }
@@ -112,7 +113,6 @@ int AQI_for_PM10(uint16_t PM10) {
   if (PM10 <= 604) return AQI_algorithm(PM10, 504, 604, 401, 500);
   return 500;
 }
-
 void Show_data_PMS(PMS_data data) {
   DEBUG_PRINTLN("====== POMIARY ======");
   DEBUG_PRINT("AQI PM2.5: ");
@@ -153,7 +153,6 @@ void PMS_Task(void *pvParameters) {
     vTaskDelay(pdMS_TO_TICKS(delay_time * 1000));
   }
 }
-
 // ======================== Funkcje setup i loop ====================
 void setup() {
   Serial.begin(115200);
@@ -185,10 +184,8 @@ void setup() {
 
   
 }
-
 void loop() {
   BME280_save();
-
   sensor.clearFields();
   sensor.addField("PM 1", PMS7003.PM1);
   sensor.addField("PM 25", PMS7003.PM25);
