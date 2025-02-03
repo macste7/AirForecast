@@ -2,9 +2,7 @@
 <h1>AirForecast Open Source Project</h1>
 </div>
 
-**AirForecast** was designed to collect and visualize air quality data, as well as predict future values using the [Holt-Winters](https://www.pmorgan.com.au/tutorials/holt-winters-method-and-northam-temperature-data/) model. It utilizes **InfluxDB** for data storage and **Grafana** for visualization. Two **RGB LEDs** provide instant AQI feedback without needing a screen.  
-
-This project was inspired by the increasing frequency of wildfires worldwide. **AirForecast** helps users stay informed about air quality and potential health risks.
+**AirForecast** was designed to collect and visualize air quality data, as well as predict future values using the [Holt-Winters](https://www.pmorgan.com.au/tutorials/holt-winters-method-and-northam-temperature-data/) model. It utilizes **InfluxDB** for data storage and **Grafana** for visualization. Two **RGB LEDs** provide instant AQI feedback without needing a screen. This project was inspired by the increasing frequency of wildfires worldwide. **AirForecast** helps users stay informed about air quality and potential health risks.
 
 
 ## 🚀 Project Features  
