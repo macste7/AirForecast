@@ -12,3 +12,7 @@ AirForecast was designed to collect and visualize air quality data, as well as p
 - InfluxDB – Stores data for up to 30 days.
 - Holt-Winters Model – Predicts future air quality.
 - Environmental Sensors – Measures PM1.0, PM2.5, PM10, temperature, humidity, and pressure.
+## End result
+<div align="center">
+<img src="pictures/grafana_visualize.jpg" width="800">
+</div>
