@@ -14,5 +14,5 @@ AirForecast was designed to collect and visualize air quality data, as well as p
 - Environmental Sensors – Measures PM1.0, PM2.5, PM10, temperature, humidity, and pressure.
 ## End result
 <div align="center">
-<img src="pictures/grafana_visualize.jpg" width="800">
+<img src="Pictures/Grafana_visualize.png" width="800">
 </div>
