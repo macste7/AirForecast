@@ -1,5 +1,5 @@
 <div align="center">
-<h1>AirForecast project</h1>
+<h1>AirForecast open source project</h1>
 </div>
 
 </div>
