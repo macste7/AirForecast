@@ -17,8 +17,25 @@ AirForecast was designed to collect and visualize air quality data, as well as p
 <img src="Pictures/Grafana_visualize.png" width="800">
 </div>
 
+## 🚀 Quick Start  
 
+### **1️⃣ Required Components**  
+- **ESP32** development board  
+- **PMS7003** (PM1.0, PM2.5, PM10 sensor)  
+- **BME280** (temperature, humidity, pressure)  
+- **2 RGB LEDs** (NeoPixel)  
 
+### **2️⃣ Pinout & Wiring**  
+
+| Component  | ESP32 Pin |
+|------------|-----------|
+| PMS7003 RX | **21** |
+| PMS7003 TX | **20** |
+| BME280 SDA | **6** |
+| BME280 SCL | **7** |
+| RGB LED    | **4** |
+
+---
 
 
 
