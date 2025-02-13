@@ -37,7 +37,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -88,9 +88,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "forecast_data = from(bucket: \"PMS sensor project\")\r\n  |> range(start: -5h)  // Upewnij się, że masz wystarczającą ilość danych historycznych\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"Temperature\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> aggregateWindow(every: 5m, fn: mean)\r\n  |> holtWinters(n: 5, seasonality: 12, interval: 5m)\r\n  |> yield(name: \"Predicted Temperature\")",
+          "query": "forecast_data = from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -5h)  // Upewnij się, że masz wystarczającą ilość danych historycznych\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"Temperature\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> aggregateWindow(every: 5m, fn: mean)\r\n  |> holtWinters(n: 5, seasonality: 12, interval: 5m)\r\n  |> yield(name: \"Predicted Temperature\")",
           "refId": "A"
         }
       ],
@@ -101,7 +101,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -153,9 +153,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "forecast_data = from(bucket: \"PMS sensor project\")\r\n  |> range(start: -5h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\") \r\n  |> filter(fn: (r) => r._field == \"Humidity\") \r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> aggregateWindow(every: 5m, fn: mean)  \r\n  |> holtWinters(n: 5, seasonality: 12, interval: 5m) \r\n  |> yield(name: \"Predicted Humidity\")",
+          "query": "forecast_data = from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -5h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\") \r\n  |> filter(fn: (r) => r._field == \"Humidity\") \r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> aggregateWindow(every: 5m, fn: mean)  \r\n  |> holtWinters(n: 5, seasonality: 12, interval: 5m) \r\n  |> yield(name: \"Predicted Humidity\")",
           "refId": "A"
         }
       ],
@@ -166,7 +166,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -218,9 +218,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "forecast_data = from(bucket: \"PMS sensor project\")\r\n  |> range(start: -5h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\") \r\n  |> filter(fn: (r) => r._field == \"Pressure\") \r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> aggregateWindow(every: 5m, fn: mean)  \r\n  |> holtWinters(n: 5, seasonality: 12, interval: 5m) \r\n  |> yield(name: \"Predicted Pressure\")",
+          "query": "forecast_data = from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -5h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\") \r\n  |> filter(fn: (r) => r._field == \"Pressure\") \r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> aggregateWindow(every: 5m, fn: mean)  \r\n  |> holtWinters(n: 5, seasonality: 12, interval: 5m) \r\n  |> yield(name: \"Predicted Pressure\")",
           "refId": "A"
         }
       ],
@@ -231,7 +231,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -283,9 +283,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "forecast_data = from(bucket: \"PMS sensor project\")\r\n  |> range(start: -5h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\") \r\n  |> filter(fn: (r) => r._field == \"AQI index for PM 25\") \r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> aggregateWindow(every: 5m, fn: mean)  \r\n  |> holtWinters(n: 5, seasonality: 12, interval: 5m) \r\n  |> yield(name: \"Predicted AQI 2.5\")",
+          "query": "forecast_data = from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -5h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\") \r\n  |> filter(fn: (r) => r._field == \"AQI index for PM 25\") \r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> aggregateWindow(every: 5m, fn: mean)  \r\n  |> holtWinters(n: 5, seasonality: 12, interval: 5m) \r\n  |> yield(name: \"Predicted AQI 2.5\")",
           "refId": "A"
         }
       ],
@@ -309,7 +309,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -369,9 +369,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "from(bucket: \"PMS sensor project\") |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"AQI index for PM 10\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"AQI_PM10\")\r\n\r\n",
+          "query": "from(bucket: \"Air_forecast_bucket\") |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"AQI index for PM 10\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"AQI_PM10\")\r\n\r\n",
           "refId": "A"
         }
       ],
@@ -381,7 +381,7 @@
     },
     {
       "datasource": {
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -439,7 +439,7 @@
       "pluginVersion": "11.5.0-81732",
       "targets": [
         {
-          "query": "from(bucket: \"PMS sensor project\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"AQI index for PM 25\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"AQI_PM25\")\r\n  \r\n",
+          "query": "from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"AQI index for PM 25\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"AQI_PM25\")\r\n  \r\n",
           "refId": "A"
         }
       ],
@@ -450,7 +450,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -502,9 +502,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "from(bucket: \"PMS sensor project\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"PM 25\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"PM25\")",
+          "query": "from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"PM 25\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"PM25\")",
           "refId": "A"
         }
       ],
@@ -515,7 +515,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -565,9 +565,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "from(bucket: \"PMS sensor project\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"PM 1\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"PM1\")",
+          "query": "from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"PM 1\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"PM1\")",
           "refId": "A"
         }
       ],
@@ -578,7 +578,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -631,9 +631,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "from(bucket: \"PMS sensor project\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"PM 10\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"PM10\")",
+          "query": "from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"PM 10\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"PM10\")",
           "refId": "A"
         }
       ],
@@ -644,7 +644,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -732,9 +732,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "\r\n  from(bucket: \"PMS sensor project\") \r\n  |> range(start: -12h) \r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\" and r._field == \"Pressure\" and r.Device_info == \"ESP32-C3-MINI\")\r\n",
+          "query": "\r\n  from(bucket: \"Air_forecast_bucket\") \r\n  |> range(start: -12h) \r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\" and r._field == \"Pressure\" and r.Device_info == \"ESP32-C3-MINI\")\r\n",
           "refId": "A"
         }
       ],
@@ -745,7 +745,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -834,9 +834,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "from(bucket: \"PMS sensor project\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"Temperature\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"Temperature\")",
+          "query": "from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"Temperature\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"Temperature\")",
           "refId": "A"
         }
       ],
@@ -847,7 +847,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "ceb5v53et9zb4c"
+        "uid": "eecudhs6ga874cet9zb4c"
       },
       "fieldConfig": {
         "defaults": {
@@ -933,9 +933,9 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "ceb5v53et9zb4c"
+            "uid": "eecudhs6ga874cet9zb4c"
           },
-          "query": "from(bucket: \"PMS sensor project\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"Humidity\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"Humidity\")",
+          "query": "from(bucket: \"Air_forecast_bucket\")\r\n  |> range(start: -12h)\r\n  |> filter(fn: (r) => r._measurement == \"ESP32_weather_station\")\r\n  |> filter(fn: (r) => r._field == \"Humidity\")\r\n  |> filter(fn: (r) => r.Device_info == \"ESP32-C3-MINI\")\r\n  |> yield(name: \"Humidity\")",
           "refId": "A"
         }
       ],
