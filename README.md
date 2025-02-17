@@ -18,6 +18,17 @@
 <img src="Pictures/Grafana_visualize.png" width="800">
 </div>
 
+## **AirForecast device**  
+<div align="center">
+<img src="Pictures/AirForecast_device1.jpeg" width="300">
+  <img src="Pictures/AirForecast_device_pcb.jpeg" width="300">
+    <img src="Pictures/Airforecast_device.jpeg" width="300">
+
+</div>
+
+
+
+
 ---
 <div align="center">
 <h1>How to build this project</h1>
