@@ -14,6 +14,15 @@
 #define RGB_PIN 4     // RGB LED
 #define PIXELS_NUM 2  // Number of RGB leds
 // ======================== InfluxDB configuration ======================
+#define DEVICE_TYPE "ESP32"
+#define WIFI_SSID ""
+#define WIFI_PASSWORD ""
+//Influx_DB
+#define INFLUXDB_URL ""                                              // server address
+#define INFLUXDB_TOKEN ""  // Your api key
+#define INFLUXDB_ORG ""                                                                            // Organisation ID
+#define INFLUXDB_BUCKET "Air_forecast_bucket"                                                                      // Your bucket name
+#define TZ_INFO "CET-1CEST,M3.5.0/2,M10.5.0/3"                                                                     // Time-zone
 // ======================== Debug ===========================
 
 //Change to 1 to see log messages
@@ -26,10 +35,10 @@
 #define Debug(x)
 #endif
 //Change to  1 to see PMS and BME sensor data
-#define SHOW_PMS 0
+#define SHOW_PMS 1
 //Turn on or off RGB leds
 #define RGB_MODE 1
-#define BRIGHTNESS_PERCENT 5  //0-100%
+#define BRIGHTNESS_PERCENT 100 //0-100%
 // ======================== Obiekty globalne ======================
 Adafruit_BME280 bme;
 Adafruit_NeoPixel strip(PIXELS_NUM, RGB_PIN, NEO_GRB + NEO_KHZ800);
@@ -62,8 +71,8 @@ struct BME280_data {
 PMS_data PMS7003;
 AQI_data AQIdata;
 BME280_data BMEdata;
-static int delay_time = 20;      // Delay in seconds for collecting PMS sensor data
-static int send_data_delay = 60;  // Delay in seconds to send data to Influx DB
+static int delay_time = 15;      // Delay in seconds for collecting PMS sensor data
+static int send_data_delay = 30;  // Delay in seconds to send data to Influx DB
 unsigned long prevMillisreconnect = 0;
 unsigned long reconnectTimeout = 15;  // Delay in seconds, timeout for reconnecting
 // ======================== Functions ====================
@@ -151,7 +160,7 @@ void Show_data_PMS(PMS_data data) {
   Serial.print(" *c | H: ");
   Serial.print(BMEdata.humidity);
   Serial.print(" % | P: ");
-  Serial.print(BMEdata.temperature);
+  Serial.print(BMEdata.pressure);
   Serial.println(" hPa");
   Serial.print("=====================");
 }
@@ -220,7 +229,6 @@ void setup() {
     Debugln(client.getLastErrorMessage());
   }
 }
-
 void loop() {
   if (WiFi.status() != WL_CONNECTED) {
     Debugln("Wifi connection lost..");
