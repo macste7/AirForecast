@@ -119,7 +119,7 @@ Adding InfluxDB as a Data Source
 - **Organization:** *(Your InfluxDB organization)*  
 - **Token:** *(Paste the API Token generated from InfluxDB.)*  
 ##  Dashboards in Grafana
-Import a JSON file to your dashboard. You can find a pre-configured dashboard in the files.
+Add flux queries to your dashboard. You can find a queries in the files.
 ## License
 This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.  
 See the [LICENSE](LICENSE) file for details.
