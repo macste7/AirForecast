@@ -1,0 +1,20 @@
+from(bucket: "Air_forecast_bucket")
+  |> range(start: -5h) 
+  |> filter(fn: (r) => r._measurement == "ESP32_weather_station")
+  |> filter(fn: (r) => r._field == "Temperature")
+  |> filter(fn: (r) => r.Device_info == "ESP32")
+  |> aggregateWindow(every: 5m, fn: mean)
+  |> holtWinters(n: 5, seasonality: 12, interval: 5m)
+  |> yield(name: "Predicted Temperature")
+
+
+from(bucket: "Air_forecast_bucket")
+  |> range(start: -5h)
+  |> filter(fn: (r) => r._measurement == "ESP32_weather_station") 
+  |> filter(fn: (r) => r._field == "Humidity") 
+  |> filter(fn: (r) => r.Device_info == "ESP32")
+  |> aggregateWindow(every: 5m, fn: mean)  
+  |> holtWinters(n: 5, seasonality: 12, interval: 5m) 
+  |> yield(name: "Predicted Humidity")
+
+
